@@ -4,9 +4,22 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
+const questions = [
+  'Wie geht es dir?',
+  'Wie ist das Wetter?',
+  'Hast du hunger?',
+];
+
 function ask() {
-  rl.question('wie geht es dir?', answer => {
-    console.log(answer);
+  let question;
+  if (questions.length >= 1) {
+    question = questions.shift();
+  } else {
+    process.exit();
+  }
+
+  rl.question(question, answer => {
+    console.log('Deine Antwort war: ', answer);
     ask();
   });
 }
