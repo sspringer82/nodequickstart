@@ -5,7 +5,6 @@ const rl = readline.createInterface({
 });
 
 const questions = [];
-
 for (let i = 0; i < 4; i++) {
   const o1 = Math.floor(Math.random() * 10);
   const o2 = Math.floor(Math.random() * 10);
@@ -30,5 +29,4 @@ function ask() {
     ask();
   });
 }
-
 ask();

@@ -1,10 +1,3 @@
-const { callback } = require('./module');
+console.log('foo');
 
-console.log('herzlich willkommen bei Node.js');
-
-debugger;
-
-const http = require('http');
-http.createServer(myCallback).listen(8080);
-
-// chrome://inspect
+console.log(process.argv);
