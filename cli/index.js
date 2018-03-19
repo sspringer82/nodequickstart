@@ -4,11 +4,14 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-const questions = [
-  'Wie geht es dir?',
-  'Wie ist das Wetter?',
-  'Hast du hunger?',
-];
+const questions = [];
+
+for (let i = 0; i < 4; i++) {
+  const o1 = Math.floor(Math.random() * 10);
+  const o2 = Math.floor(Math.random() * 10);
+  const result = o1 + o2;
+  questions.push({ o1, o2, result });
+}
 
 function ask() {
   let question;
@@ -18,8 +21,12 @@ function ask() {
     process.exit();
   }
 
-  rl.question(question, answer => {
-    console.log('Deine Antwort war: ', answer);
+  rl.question(`${question.o1} + ${question.o2} = `, answer => {
+    if (parseInt(answer, 10) === question.result) {
+      console.log('RICHTIG!');
+    } else {
+      console.log(question.result + " wär's gewesen");
+    }
     ask();
   });
 }
